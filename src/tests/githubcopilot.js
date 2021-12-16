@@ -41,3 +41,19 @@ app.get('/images', (req, res) => {
     }
     res.send(imageList);
 });
+
+// set the page title
+app.get('/title', (req, res) => {
+    let title = page.title();
+    res.send(title);
+}   );
+
+// sum the numbers in the query string
+app.get('/sum', (req, res) => {
+    let sum = 0;
+    let numbers = req.query.numbers.split(',');
+    for (let i = 0; i < numbers.length; i++) {
+        sum += parseInt(numbers[i]);
+    }
+    res.send(sum.toString());
+}   );
